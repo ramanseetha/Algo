@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -11,7 +12,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://quantumalgo.com"),
   title: "Quantum Algo | AI-Driven Forex Trading for UAE Traders",
-  description: "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns. Built for serious traders in Dubai, Abu Dhabi & UAE.",
+  description:
+    "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns. Built for serious traders in Dubai, Abu Dhabi & UAE.",
   keywords: [
     "UAE forex trading",
     "Dubai algorithmic trading",
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     "forex robots",
     "quantitative trading",
     "Abu Dhabi trading",
-    "UAE investors"
+    "UAE investors",
   ],
   authors: [{ name: "Quantum Algo" }],
   creator: "Quantum Algo",
@@ -46,7 +48,8 @@ export const metadata: Metadata = {
     url: "https://quantumalgo.com",
     siteName: "Quantum Algo",
     title: "Quantum Algo | AI-Driven Forex Trading for UAE Traders",
-    description: "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns.",
+    description:
+      "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns.",
     images: [
       {
         url: "/QA logo.png",
@@ -59,7 +62,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Quantum Algo | AI-Driven Forex Trading for UAE Traders",
-    description: "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns.",
+    description:
+      "Unlock consistent AI-driven trading for UAE traders. Get $100K+ funded accounts, automated momentum strategies, and 1-5% drawdowns.",
     images: ["/QA logo.png"],
     creator: "@quantumalgo",
   },
@@ -68,9 +72,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/QA logo.png", type: "image/png" },
     ],
-    apple: [
-      { url: "/QA logo.png" },
-    ],
+    apple: [{ url: "/QA logo.png" }],
     shortcut: "/QA logo.png",
   },
   manifest: "/manifest.json",
@@ -88,20 +90,54 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Clash Display Font from Fontshare */}
+        {/* Clash Display Font */}
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
           rel="stylesheet"
         />
+
         {/* Additional SEO meta tags */}
         <meta name="theme-color" content="#230859" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="format-detection" content="telephone=no" />
         <link rel="icon" href="/QA logo.png" />
         <link rel="apple-touch-icon" href="/QA logo.png" />
       </head>
-      <body className={`${montserrat.className} antialiased`}>{children}</body>
+
+      <body className={`${montserrat.className} antialiased`}>
+        {/* ===== Meta Pixel Code ===== */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}
+            (window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '2252849898562075');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=2252849898562075&ev=PageView&noscript=1"
+          />
+        </noscript>
+        {/* ===== End Meta Pixel Code ===== */}
+
+        {children}
+      </body>
     </html>
   );
 }
