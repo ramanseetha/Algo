@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quantum Algo – Thank You</title>
 
+  <!-- ===== Meta Pixel Code ===== -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}
+    (window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2252849898562075');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2252849898562075&ev=PageView&noscript=1"
+    />
+  </noscript>
+  <!-- ===== End Meta Pixel Code ===== -->
+
+  <script> fbq('track', 'Lead');</script>
+
   <style>
     :root {
       --ink: #0f172a;
@@ -25,14 +48,12 @@
       color: var(--ink);
     }
 
-    /* ===== HERO (ONLY BG IMAGE) ===== */
     .hero {
       min-height: 100vh;
       padding: clamp(48px, 8vw, 90px) 20px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-
       background-image: url("./images/bg.png");
       background-size: cover;
       background-position: center;
@@ -69,13 +90,11 @@
 
     .lead {
       margin-top: 14px;
-      color: var(--muted);
       line-height: 1.7;
       font-size: clamp(18px, 1.6vw, 20px);
       color: #fff;
     }
 
-    /* ===== CARD ===== */
     .card {
       background: var(--card);
       border: 1px solid var(--ring);
@@ -89,11 +108,14 @@
     .card ul {
       list-style: none;
       margin-top: 16px;
+      text-align: center;
+      padding-left: 0;
     }
 
     .card li {
       margin: 10px 0;
       font-size: 18px;
+      list-style: none;
     }
 
     .note {
@@ -103,23 +125,17 @@
       line-height: 1.6;
       text-align: center;
     }
-    .bin{
+
+    .bin {
       color: #0f172a;
     }
-   .card ul {
-  text-align: center;
-  padding-left: 0;
-}
-
-.card li {
-  list-style: none;
-}
-
   </style>
 
+  <!-- ===== Lead Event (kept as you asked) ===== -->
   <script>
     fbq('track', 'Lead');
   </script>
+
 </head>
 
 <body>
@@ -146,9 +162,9 @@
       </p>
 
       <ul>
-        <li> Your current trading experience</li>
-        <li> Your capital and funding goals</li>
-        <li> Your timeline for getting started</li>
+        <li>Your current trading experience</li>
+        <li>Your capital and funding goals</li>
+        <li>Your timeline for getting started</li>
       </ul>
 
       <p class="note">
