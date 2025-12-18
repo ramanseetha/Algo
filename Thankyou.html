@@ -1,180 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum Algo – Thank You</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quantum Algo – Thank You</title>
 
-  <!-- ===== Meta Pixel Code ===== -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}
-    (window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2252849898562075');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=2252849898562075&ev=PageView&noscript=1"
-    />
-  </noscript>
-  <!-- ===== End Meta Pixel Code ===== -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2252849898562075');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
 
-  <script> fbq('track', 'Lead');</script>
+<style>
+:root {
+  --bg1:#020617;
+  --bg2:#0f172a;
+  --text:#ffffff;
+  --muted:#cbd5f5;
+  --accent:#38bdf8;
+}
 
-  <style>
-    :root {
-      --ink: #0f172a;
-      --muted: #4b5563;
-      --card: rgba(255,255,255,0.95);
-      --ring: #e5e7eb;
-      --shadow: 0 20px 45px rgba(15, 8, 8, 0.12);
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: system-ui, Arial;
+  background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-y: hidden;
 
-    body {
-      font-family: system-ui, Arial;
-      color: var(--ink);
-    }
+}
 
-    .hero {
-      min-height: 100vh;
-      padding: clamp(48px, 8vw, 90px) 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-image: url("./images/bg.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
 
-    .wrap {
-      width: min(1100px, 100%);
-    }
+.wrap {
+  max-width: 900px;
+  animation: fadeUp 1s ease forwards;
+}
 
-    .center {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-    }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .check {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #e0f2fe;
-      color: #0284c7;
-      font-size: 34px;
-    }
+.check {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#22d3ee,#38bdf8);
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  color: #020617;
+  margin: 0 auto 22px;
+  box-shadow: 0 0 40px rgba(56,189,248,.7);
+}
 
-    h1 {
-      font-weight: 800;
-      font-size: clamp(30px, 4vw, 46px);
-      color: #fff;
-    }
+h1 {
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
 
-    .lead {
-      margin-top: 14px;
-      line-height: 1.7;
-      font-size: clamp(18px, 1.6vw, 20px);
-      color: #fff;
-    }
+.lead {
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.7;
+  color: var(--muted);
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--ring);
-      border-radius: 16px;
-      padding: clamp(20px, 3vw, 34px);
-      box-shadow: var(--shadow);
-      margin: clamp(30px, 4vw, 46px) auto 0;
-      max-width: 720px;
-    }
+.divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  margin: 34px auto;
+}
 
-    .card ul {
-      list-style: none;
-      margin-top: 16px;
-      text-align: center;
-      padding-left: 0;
-    }
+.points {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
 
-    .card li {
-      margin: 10px 0;
-      font-size: 18px;
-      list-style: none;
-    }
+.points p {
+  font-size: 18px;
+  color: #e5e7eb;
+  padding: 10px 18px;
+  border-radius: 10px; /* pill shape */
+  background: rgba(255, 255, 255, 0.099);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+  padding: 40px;
+}
 
-    .note {
-      margin-top: 22px;
-      font-size: 16px;
-      color: #374151;
-      line-height: 1.6;
-      text-align: center;
-    }
 
-    .bin {
-      color: #0f172a;
-    }
-  </style>
+/* small dot instead of bullet */
 
-  <!-- ===== Lead Event (kept as you asked) ===== -->
-  <script>
-    fbq('track', 'Lead');
-  </script>
 
+
+.note {
+  margin-top: 36px;
+  font-size: 15px;
+  color: #cbd5f5;
+  opacity: 0.85;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+body {
+  font-family: system-ui, Arial;
+  background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;   /* allow vertical scroll */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+}
+</style>
 </head>
 
 <body>
 
 <section class="hero">
+  <canvas id="confetti"></canvas>
+
   <div class="wrap">
+    <div class="check">✔</div>
 
-    <div class="center">
-      <div class="check">✔</div>
+    <h1>You’re In.</h1>
 
-      <h1>You’re In.</h1>
+    <p class="lead">
+      <strong>Your Quantum Algo Strategy Call is confirmed.</strong><br>
+      Over the next <strong>24 – 48 hours</strong>, our team will review your answers
+      and prepare a personalized strategy based on:
+    </p>
 
-      <p class="lead">
-        <strong>Your Quantum Algo Strategy Call is confirmed.</strong><br>
-        You’ve just taken a serious step toward building consistent,
-        AI-driven trading returns.
-      </p>
+    <div class="divider"></div>
+
+    <div class="points">
+      <p> Your current trading experience</p>
+      <p> Your capital and funding goals</p>
+      <p> Your timeline for getting started</p>
     </div>
 
-    <div class="card">
-      <p class="lead bin" style="text-align:center;">
-        Over the next <strong>24–48 hours</strong>, our team will review your answers and
-        prepare a personalized strategy based on:
-      </p>
-
-      <ul>
-        <li>Your current trading experience</li>
-        <li>Your capital and funding goals</li>
-        <li>Your timeline for getting started</li>
-      </ul>
-
-      <p class="note">
-        If you need to reschedule, please use the link in your confirmation email
-        so we can offer your slot to another trader on the waitlist.
-      </p>
-    </div>
-
+    <p class="note">
+      If you need to reschedule, please use the link in your confirmation email
+      so we can offer your slot to another trader on the waitlist.
+    </p>
   </div>
 </section>
+
+<script>
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const colors = ["#38bdf8","#22d3ee","#a78bfa","#f472b6"];
+const pieces = [];
+
+for (let i = 0; i < 120; i++) {
+  pieces.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 6 + 4,
+    speed: Math.random() * 3 + 2,
+    color: colors[Math.floor(Math.random() * colors.length)]
+  });
+}
+
+let animationId;
+let startTime = performance.now();
+
+function animate(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  pieces.forEach(p => {
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+    p.y += p.speed;
+  });
+
+  // ⏱ Stop after 2 seconds
+  if (time - startTime < 6000) {
+    animationId = requestAnimationFrame(animate);
+  } else {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    cancelAnimationFrame(animationId);
+  }
+}
+
+animationId = requestAnimationFrame(animate);
+</script>
+
 
 </body>
 </html>
