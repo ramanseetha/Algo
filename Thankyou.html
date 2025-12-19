@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quantum Algo – Thank You</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2252849898562075');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
+
+<style>
+:root {
+  --bg1:#020617;
+  --bg2:#0f172a;
+  --text:#ffffff;
+  --muted:#cbd5f5;
+  --accent:#38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, Arial;
+  background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-y: hidden;
+
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.wrap {
+  max-width: 900px;
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.check {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#22d3ee,#38bdf8);
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  color: #020617;
+  margin: 0 auto 22px;
+  box-shadow: 0 0 40px rgba(56,189,248,.7);
+}
+
+h1 {
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.lead {
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  margin: 34px auto;
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.points p {
+  font-size: 18px;
+  color: #e5e7eb;
+  padding: 10px 18px;
+  border-radius: 10px; /* pill shape */
+  background: rgba(255, 255, 255, 0.099);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+  padding: 40px;
+}
+
+
+/* small dot instead of bullet */
+
+
+
+.note {
+  margin-top: 36px;
+  font-size: 15px;
+  color: #cbd5f5;
+  opacity: 0.85;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+body {
+  font-family: system-ui, Arial;
+  background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;   /* allow vertical scroll */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <canvas id="confetti"></canvas>
+
+  <div class="wrap">
+    <div class="check">✔</div>
+
+    <h1>You’re In.</h1>
+
+    <p class="lead">
+      <strong>Your Quantum Algo Strategy Call is confirmed.</strong><br>
+      Over the next <strong>24 – 48 hours</strong>, our team will review your answers
+      and prepare a personalized strategy based on:
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="points">
+      <p> Your current trading experience</p>
+      <p> Your capital and funding goals</p>
+      <p> Your timeline for getting started</p>
+    </div>
+
+    <p class="note">
+      If you need to reschedule, please use the link in your confirmation email
+      so we can offer your slot to another trader on the waitlist.
+    </p>
+  </div>
+</section>
+
+<script>
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const colors = ["#38bdf8","#22d3ee","#a78bfa","#f472b6"];
+const pieces = [];
+
+for (let i = 0; i < 120; i++) {
+  pieces.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 6 + 4,
+    speed: Math.random() * 3 + 2,
+    color: colors[Math.floor(Math.random() * colors.length)]
+  });
+}
+
+let animationId;
+let startTime = performance.now();
+
+function animate(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  pieces.forEach(p => {
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+    p.y += p.speed;
+  });
+
+  // ⏱ Stop after 2 seconds
+  if (time - startTime < 6000) {
+    animationId = requestAnimationFrame(animate);
+  } else {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    cancelAnimationFrame(animationId);
+  }
+}
+
+animationId = requestAnimationFrame(animate);
+</script>
+
+
+</body>
+</html>
